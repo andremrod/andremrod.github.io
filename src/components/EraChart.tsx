@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { roles, ui, type Lang } from "@/content";
 import { formatDuration, monthsWorked, nowIndex, toIndex } from "@/lib/dates";
 
@@ -17,7 +18,7 @@ export function EraChart({ lang }: { lang: Lang }) {
   const ordered = [...roles].reverse();
 
   return (
-    <figure className="era">
+    <figure className="era" data-reveal="">
       <div className="era__axis" aria-hidden="true">
         {years.map((y, i) => (
           <span key={y} className={i % 2 ? "era__tick era__tick--odd" : "era__tick"} style={{ left: `${pct(y * 12)}%` }}>
@@ -35,7 +36,7 @@ export function EraChart({ lang }: { lang: Lang }) {
           // um só tom que escurece com o tempo: a ordem fica visível sem legenda
           const strength = 0.35 + (0.65 * i) / Math.max(ordered.length - 1, 1);
           return (
-            <li key={r.company + r.start} className="era__row">
+            <li key={r.company + r.start} className="era__row" style={{ "--row": i } as CSSProperties}>
               <div className="era__label">
                 <span className="era__company">{r.company}</span>
                 <span className="era__stack mono">{r.stack.join(" · ")}</span>
