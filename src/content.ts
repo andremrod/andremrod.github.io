@@ -213,7 +213,7 @@ export const layers: { slug: string; name: Record<Lang, string>; items: string[]
   { slug: "servicos", name: { pt: "Serviços", en: "Services" }, items: ["REST APIs", "Java", ".NET (C#)", "Node.js"] },
   { slug: "dados", name: { pt: "Dados", en: "Data" }, items: ["PostgreSQL", "MongoDB"] },
 ];
-export const infra = ["Docker", "CI/CD", "Azure / GCP"];
+export const infra = ["Docker", "CI/CD", "Azure"];
 
 export const backendWork: { title: Record<Lang, string>; body: Record<Lang, string> }[] = [
   {
@@ -245,7 +245,7 @@ export const skills: { group: Record<Lang, string>; items: string[] }[] = [
   { group: { pt: "Micro frontends", en: "Micro frontends" }, items: ["Module Federation", "Web Components", "iframes"] },
   { group: { pt: "Back-end", en: "Backend" }, items: ["Node.js", "Express", "Java", ".NET (C#)", "REST APIs", "BFF / API Gateway", "Autenticação", "Integrações"] },
   { group: { pt: "Dados", en: "Data" }, items: ["PostgreSQL", "MongoDB"] },
-  { group: { pt: "Infra e entrega", en: "Infra & delivery" }, items: ["Docker", "CI/CD", "Azure / GCP", "Git", "GitHub"] },
+  { group: { pt: "Infra e entrega", en: "Infra & delivery" }, items: ["Docker", "CI/CD", "Azure", "Git", "GitHub"] },
   { group: { pt: "Mobile", en: "Mobile" }, items: ["React Native", "Ionic"] },
   { group: { pt: "Forma de trabalho", en: "Ways of working" }, items: ["Kanban", "Code review", "Liderança de front-end"] },
 ];
