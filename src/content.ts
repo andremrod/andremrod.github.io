@@ -205,13 +205,48 @@ export const cases: { slug: string; company: string; title: Record<Lang, string>
   },
 ];
 
+/** Seção "Do banco à tela": as camadas em que você trabalha, de cima (tela) para baixo (dados). */
+export const layers: { slug: string; name: Record<Lang, string>; items: string[] }[] = [
+  { slug: "interface", name: { pt: "Interface", en: "Interface" }, items: ["React", "Next.js", "React Native", "TypeScript"] },
+  { slug: "composicao", name: { pt: "Composição", en: "Composition" }, items: ["Micro frontends", "Module Federation", "Web Components"] },
+  { slug: "bff", name: { pt: "BFF / API Gateway", en: "BFF / API Gateway" }, items: ["Node.js", "Express", "Autenticação", "Integrações"] },
+  { slug: "servicos", name: { pt: "Serviços", en: "Services" }, items: ["REST APIs", "Java", ".NET (C#)", "Node.js"] },
+  { slug: "dados", name: { pt: "Dados", en: "Data" }, items: ["PostgreSQL", "MongoDB"] },
+];
+export const infra = ["Docker", "CI/CD", "Azure / GCP"];
+
+export const backendWork: { title: Record<Lang, string>; body: Record<Lang, string> }[] = [
+  {
+    title: { pt: "APIs REST para os front-ends", en: "REST APIs for the front ends" },
+    body: {
+      pt: "Desenho e construo os endpoints que as aplicações web e mobile consomem, em Node.js com Express, Java e .NET.",
+      en: "I design and build the endpoints that web and mobile apps consume, in Node.js with Express, Java and .NET.",
+    },
+  },
+  {
+    title: { pt: "BFF e API Gateway", en: "BFF and API Gateway" },
+    body: {
+      pt: "Crio camadas Backend for Frontend que agregam vários serviços e entregam a cada tela só o que ela precisa.",
+      en: "I build Backend-for-Frontend layers that aggregate several services and give each screen exactly what it needs.",
+    },
+  },
+  {
+    title: { pt: "Integrações e autenticação", en: "Integrations and authentication" },
+    body: {
+      pt: "Integro sistemas externos e implemento autenticação, com dados em PostgreSQL e MongoDB e entrega em Docker e CI/CD.",
+      en: "I integrate external systems and implement authentication, with data in PostgreSQL and MongoDB and delivery through Docker and CI/CD.",
+    },
+  },
+];
+
 /** Competências agrupadas. Inclua aqui só o que você usa de verdade (ex.: testes, performance, acessibilidade). */
 export const skills: { group: Record<Lang, string>; items: string[] }[] = [
   { group: { pt: "Front-end", en: "Frontend" }, items: ["React", "Next.js", "TypeScript", "JavaScript", "Redux", "React Hooks", "Angular", "HTML", "CSS / Sass", "Design responsivo"] },
   { group: { pt: "Micro frontends", en: "Micro frontends" }, items: ["Module Federation", "Web Components", "iframes"] },
-  { group: { pt: "Back-end", en: "Backend" }, items: ["Node.js", "Express", "REST APIs", "Java", ".NET (C#)"] },
+  { group: { pt: "Back-end", en: "Backend" }, items: ["Node.js", "Express", "Java", ".NET (C#)", "REST APIs", "BFF / API Gateway", "Autenticação", "Integrações"] },
+  { group: { pt: "Dados", en: "Data" }, items: ["PostgreSQL", "MongoDB"] },
+  { group: { pt: "Infra e entrega", en: "Infra & delivery" }, items: ["Docker", "CI/CD", "Azure / GCP", "Git", "GitHub"] },
   { group: { pt: "Mobile", en: "Mobile" }, items: ["React Native", "Ionic"] },
-  { group: { pt: "Ferramentas", en: "Tooling" }, items: ["Git", "GitHub", "npm"] },
   { group: { pt: "Forma de trabalho", en: "Ways of working" }, items: ["Kanban", "Code review", "Liderança de front-end"] },
 ];
 
@@ -236,24 +271,27 @@ export const certifications = [
 export const ui = {
   pt: {
     htmlLang: "pt-BR",
-    title: "André Macedo Rodrigues · Desenvolvedor Front-end Sênior",
+    title: "André Macedo Rodrigues · Desenvolvedor Front-end Sênior · Fullstack",
     description:
-      "Desenvolvedor Front-end Sênior em São Paulo com 10 anos de experiência em React, Next.js, React Native, Angular e micro frontends, e back-end em Node.js, Java e .NET. Hoje na Globo; antes QuintoAndar, Carguero e Daimler.",
-    role: "Desenvolvedor Front-end Sênior",
+      "Desenvolvedor Front-end Sênior e Fullstack em São Paulo, com 10 anos de experiência. React, Next.js, React Native e micro frontends no front; Node.js, Java, .NET, PostgreSQL, MongoDB e Docker no back. Hoje na Globo; antes QuintoAndar, Carguero e Daimler.",
+    role: "Desenvolvedor Front-end Sênior · Fullstack",
     intro:
-      "Construo produtos web e mobile com React, Next.js e React Native, em arquiteturas de micro frontends, e circulo pelo back-end com Node.js, Java e .NET. São 10 anos de front-end, de jQuery a Next.js, passando por Globo, QuintoAndar, Carguero e Daimler.",
-    available: "Aberto a vagas de Front-end Sênior · remoto ou São Paulo",
-    nav: { work: "Trajetória", cases: "Destaques", skills: "Stack", contact: "Contato" },
+      "Construo produtos web e mobile de ponta a ponta: a interface em React, Next.js e React Native, em arquiteturas de micro frontends, e as APIs e BFFs que a alimentam, em Node.js, Java e .NET. São 10 anos de experiência, passando por Globo, QuintoAndar, Carguero e Daimler.",
+    available: "Aberto a vagas de Front-end Sênior e Fullstack · remoto ou São Paulo",
+    nav: { work: "Trajetória", cases: "Destaques", fullstack: "Fullstack", skills: "Stack", contact: "Contato" },
     eraTitle: "10 anos, 6 empresas, 4 gerações de front-end",
     eraNote: "Cada faixa é uma empresa, com largura proporcional ao tempo e a stack que eu usei lá.",
     workTitle: "Trajetória",
     now: "hoje",
     casesTitle: "Destaques",
+    fsTitle: "Do banco à tela",
+    fsLead: "Além do front-end, trabalho nas camadas que o alimentam. Estas são as camadas em que atuo, da tela até os dados.",
+    fsInfra: "Em todas as camadas",
     skillsTitle: "Stack",
     educationTitle: "Formação",
     certsTitle: "Certificados",
     contactTitle: "Vamos conversar",
-    contactBody: "Estou aberto a vagas de Front-end Sênior, presenciais em São Paulo ou remotas. O jeito mais rápido é por e-mail ou mensagem no LinkedIn.",
+    contactBody: "Estou aberto a vagas de Front-end Sênior e Fullstack, presenciais em São Paulo ou remotas. O jeito mais rápido é por e-mail ou mensagem no LinkedIn.",
     copy: "Copiar e-mail",
     copied: "E-mail copiado",
     copyFail: "Selecione o e-mail e copie",
@@ -266,24 +304,27 @@ export const ui = {
   },
   en: {
     htmlLang: "en",
-    title: "André Macedo Rodrigues · Senior Frontend Engineer",
+    title: "André Macedo Rodrigues · Senior Frontend / Full Stack Engineer",
     description:
-      "Senior Frontend Engineer in São Paulo, Brazil, with 10 years of experience in React, Next.js, React Native, Angular and micro frontends, plus backend work in Node.js, Java and .NET. Currently at Globo; previously QuintoAndar, Carguero and Daimler.",
-    role: "Senior Frontend Engineer",
+      "Senior Frontend / Full Stack Engineer in São Paulo, Brazil, with 10 years of experience. React, Next.js, React Native and micro frontends on the front end; Node.js, Java, .NET, PostgreSQL, MongoDB and Docker on the back end. Currently at Globo; previously QuintoAndar, Carguero and Daimler.",
+    role: "Senior Frontend / Full Stack Engineer",
     intro:
-      "I build web and mobile products with React, Next.js and React Native on micro-frontend architectures, and work across the backend with Node.js, Java and .NET. Ten years of frontend, from jQuery to Next.js, across Globo, QuintoAndar, Carguero and Daimler.",
-    available: "Open to Senior Frontend roles · remote or São Paulo",
-    nav: { work: "Experience", cases: "Highlights", skills: "Stack", contact: "Contact" },
+      "I build web and mobile products end to end: the interface in React, Next.js and React Native on micro-frontend architectures, and the APIs and BFFs behind it in Node.js, Java and .NET. Ten years of experience across Globo, QuintoAndar, Carguero and Daimler.",
+    available: "Open to Senior Frontend and Full Stack roles · remote or São Paulo",
+    nav: { work: "Experience", cases: "Highlights", fullstack: "Full stack", skills: "Stack", contact: "Contact" },
     eraTitle: "10 years, 6 companies, 4 generations of frontend",
     eraNote: "Each band is a company, sized by time spent, with the stack I used there.",
     workTitle: "Experience",
     now: "present",
     casesTitle: "Highlights",
+    fsTitle: "From database to screen",
+    fsLead: "Beyond the front end, I work on the layers that feed it. These are the layers I work in, from the screen down to the data.",
+    fsInfra: "Across every layer",
     skillsTitle: "Stack",
     educationTitle: "Education",
     certsTitle: "Certifications",
     contactTitle: "Let's talk",
-    contactBody: "I'm open to Senior Frontend roles, remote or in São Paulo. Email or a LinkedIn message is the fastest way to reach me.",
+    contactBody: "I'm open to Senior Frontend and Full Stack roles, remote or in São Paulo. Email or a LinkedIn message is the fastest way to reach me.",
     copy: "Copy email",
     copied: "Email copied",
     copyFail: "Select the email to copy it",

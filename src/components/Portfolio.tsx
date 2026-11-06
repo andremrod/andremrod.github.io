@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CopyEmail } from "@/components/CopyEmail";
 import { EraChart } from "@/components/EraChart";
-import { cases, certifications, education, person, roles, skills, ui, type Lang } from "@/content";
+import { backendWork, cases, certifications, education, infra, layers, person, roles, skills, ui, type Lang } from "@/content";
 import { formatDuration, formatMonth, monthsWorked } from "@/lib/dates";
 
 export function Portfolio({ lang }: { lang: Lang }) {
@@ -25,6 +25,7 @@ export function Portfolio({ lang }: { lang: Lang }) {
           <nav aria-label={lang === "pt" ? "Seções" : "Sections"}>
             <a href="#trajetoria">{t.nav.work}</a>
             <a href="#destaques">{t.nav.cases}</a>
+            <a href="#fullstack">{t.nav.fullstack}</a>
             <a href="#stack">{t.nav.skills}</a>
             <a href="#contato">{t.nav.contact}</a>
           </nav>
@@ -127,6 +128,37 @@ export function Portfolio({ lang }: { lang: Lang }) {
                 </ul>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="fullstack" className="wrap section" aria-labelledby="fs-title">
+          <h2 id="fs-title" className="h2">
+            {t.fsTitle}
+          </h2>
+          <p className="lead">{t.fsLead}</p>
+          <div className="fs">
+            <figure className="stackmap" aria-label={t.fsTitle}>
+              <ol className="stackmap__layers">
+                {layers.map((l) => (
+                  <li key={l.slug} className={`stackmap__layer stackmap__layer--${l.slug}`}>
+                    <span className="stackmap__name">{l.name[lang]}</span>
+                    <span className="stackmap__items mono">{l.items.join(" · ")}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="stackmap__infra">
+                <span className="stackmap__name">{t.fsInfra}</span>
+                <span className="stackmap__items mono">{infra.join(" · ")}</span>
+              </div>
+            </figure>
+            <ul className="fs__work">
+              {backendWork.map((w) => (
+                <li key={w.title.en}>
+                  <h3 className="fs__title">{w.title[lang]}</h3>
+                  <p className="muted-2">{w.body[lang]}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
