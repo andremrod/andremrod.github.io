@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CopyEmail } from "@/components/CopyEmail";
 import { EraChart } from "@/components/EraChart";
-import { backendWork, cases, certifications, education, infra, layers, person, roles, skills, ui, type Lang } from "@/content";
+import { backendWork, cases, certifications, education, infra, layers, person, projects, roles, skills, ui, type Lang } from "@/content";
 import { formatDuration, formatMonth, monthsWorked } from "@/lib/dates";
 import type { CSSProperties } from "react";
 
@@ -29,6 +29,7 @@ export function Portfolio({ lang }: { lang: Lang }) {
           <nav aria-label={lang === "pt" ? "Seções" : "Sections"}>
             <a href="#trajetoria">{t.nav.work}</a>
             <a href="#destaques">{t.nav.cases}</a>
+            <a href="#projetos">{t.nav.projects}</a>
             <a href="#fullstack">{t.nav.fullstack}</a>
             <a href="#stack">{t.nav.skills}</a>
             <a href="#contato">{t.nav.contact}</a>
@@ -132,6 +133,45 @@ export function Portfolio({ lang }: { lang: Lang }) {
                     </li>
                   ))}
                 </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="projetos" className="wrap section" aria-labelledby="projects-title">
+          <h2 id="projects-title" className="h2" {...reveal(0)}>
+            {t.projectsTitle}
+          </h2>
+          <p className="lead" {...reveal(1)}>
+            {t.projectsLead}
+          </p>
+          <div className="projects">
+            {projects.map((p, i) => (
+              <article key={p.slug} className="case project" {...reveal(i % 2)}>
+                <p className="eyebrow">{p.kind[lang]}</p>
+                <h3 className="case__title">{p.name}</h3>
+                <p>{p.body[lang]}</p>
+                <ul className="chips">
+                  {p.tags.map((tag) => (
+                    <li key={tag} className="chip">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                <div className="project__links">
+                  {p.links.map((l) => (
+                    <a
+                      key={l.href}
+                      className={l.primary ? "btn btn--primary" : "btn"}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {l.label[lang]}
+                      <span aria-hidden="true"> ↗</span>
+                    </a>
+                  ))}
+                </div>
               </article>
             ))}
           </div>

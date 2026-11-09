@@ -205,6 +205,74 @@ export const cases: { slug: string; company: string; title: Record<Lang, string>
   },
 ];
 
+/** Projetos pessoais publicados no GitHub. */
+export type Project = {
+  slug: string;
+  name: string;
+  kind: Record<Lang, string>;
+  body: Record<Lang, string>;
+  tags: string[];
+  links: { label: Record<Lang, string>; href: string; primary?: boolean }[];
+};
+
+const gh = (repo: string) => `https://github.com/andremrod/${repo}`;
+
+export const projects: Project[] = [
+  {
+    slug: "clipboard-formatter",
+    name: "ClipboardFormatter",
+    kind: { pt: "App para macOS", en: "macOS app" },
+    body: {
+      pt: "App da barra de menus que reconhece o que você copiou (JSON, JWT, UUID, URL, datas, cores, CPF, CNPJ, CEP, PIX, valores em R$) e oferece 48 formatações com um clique. Tudo local, sem rede e sem histórico.",
+      en: "Menu bar app that detects what you copied (JSON, JWT, UUID, URLs, dates, colors and Brazilian formats like CPF, CNPJ and PIX keys) and offers 48 one-click transformations. Fully local: no network, no history.",
+    },
+    tags: ["Swift", "SwiftUI", "macOS", "GitHub Actions"],
+    links: [
+      { label: { pt: "Baixar .dmg", en: "Download .dmg" }, href: `${gh("clipboard-formatter")}/releases/latest`, primary: true },
+      { label: { pt: "Código", en: "Source" }, href: gh("clipboard-formatter") },
+    ],
+  },
+  {
+    slug: "resume-podcast-jn",
+    name: "Resume Podcast - JN",
+    kind: { pt: "Extensão do Chrome · publicada na Chrome Web Store", en: "Chrome extension · on the Chrome Web Store" },
+    body: {
+      pt: "Lembra onde você parou nos podcasts do Jovem Nerd: salva o ponto ao pausar e a cada 5 minutos e retoma sozinha quando você volta ao episódio, inclusive na navegação sem recarregar a página.",
+      en: "Remembers where you stopped in Jovem Nerd podcasts: saves your position on pause and every 5 minutes, and resumes automatically when you come back, including client-side navigation.",
+    },
+    tags: ["JavaScript", "Manifest V3", "MutationObserver"],
+    links: [
+      { label: { pt: "Chrome Web Store", en: "Chrome Web Store" }, href: "https://chromewebstore.google.com/detail/resume-podcast-jn/ioocoajakjjkpcjbbkbcmpfkpcicgmkm", primary: true },
+      { label: { pt: "Código", en: "Source" }, href: gh("resume-podcast-jn") },
+    ],
+  },
+  {
+    slug: "linkedin-profile-audit",
+    name: "LinkedIn Profile Audit",
+    kind: { pt: "Ferramenta em Python · skill do Claude Code", en: "Python tool · Claude Code skill" },
+    body: {
+      pt: "Dá nota de 0 a 100 a um perfil do LinkedIn comparando com vagas reais e com o que a busca de recrutadores usa hoje, e ordena as melhorias por ganho ÷ esforço. Palavras-chave com sinônimos, TF-IDF e relatório em HTML, só com a biblioteca padrão.",
+      en: "Scores a LinkedIn profile from 0 to 100 against real job postings and current recruiter search, then ranks fixes by gain ÷ effort. Synonym-aware keywords, TF-IDF similarity and an HTML report, using only the standard library.",
+    },
+    tags: ["Python", "TF-IDF", "CLI", "Claude Code"],
+    links: [{ label: { pt: "Código", en: "Source" }, href: gh("linkedin-profile-audit"), primary: true }],
+  },
+  {
+    slug: "twitch-drops-auto-claim",
+    name: "Twitch Drops Auto Claim",
+    kind: { pt: "Extensão do Chrome", en: "Chrome extension" },
+    body: {
+      pt: "Resgata os drops da Twitch de um jogo assim que ficam prontos: lê o inventário pela API GraphQL com a sessão do navegador, faz o resgate e, se a API bloquear, usa a página de inventário como plano B.",
+      en: "Claims Twitch drops for a chosen game as soon as they're ready: reads the inventory through the GraphQL API using the browser session, claims them, and falls back to the inventory page when the API is blocked.",
+    },
+    tags: ["JavaScript", "Manifest V3", "GraphQL", "Service Worker"],
+    links: [
+      { label: { pt: "Baixar .zip", en: "Download .zip" }, href: `${gh("twitch-drops-auto-claim")}/releases/latest`, primary: true },
+      { label: { pt: "Código", en: "Source" }, href: gh("twitch-drops-auto-claim") },
+    ],
+  },
+];
+
 /** Seção "Do banco à tela": as camadas em que você trabalha, de cima (tela) para baixo (dados). */
 export const layers: { slug: string; name: Record<Lang, string>; items: string[] }[] = [
   { slug: "interface", name: { pt: "Interface", en: "Interface" }, items: ["React", "Next.js", "React Native", "TypeScript"] },
@@ -278,12 +346,14 @@ export const ui = {
     intro:
       "Construo produtos web e mobile de ponta a ponta: a interface em React, Next.js e React Native, em arquiteturas de micro frontends, e as APIs e BFFs que a alimentam, em Node.js, Java e .NET. São 10 anos de experiência, passando por Globo, QuintoAndar, Carguero e Daimler.",
     available: "Aberto a vagas de Front-end Sênior e Fullstack · remoto ou São Paulo",
-    nav: { work: "Trajetória", cases: "Destaques", fullstack: "Fullstack", skills: "Stack", contact: "Contato" },
+    nav: { work: "Trajetória", cases: "Destaques", projects: "Projetos", fullstack: "Fullstack", skills: "Stack", contact: "Contato" },
     eraTitle: "10 anos, 6 empresas, 4 gerações de front-end",
     eraNote: "Cada faixa é uma empresa, com largura proporcional ao tempo e a stack que eu usei lá.",
     workTitle: "Trajetória",
     now: "hoje",
     casesTitle: "Destaques",
+    projectsTitle: "Projetos",
+    projectsLead: "Coisas que construí por conta própria e publiquei: do app nativo para Mac à extensão na Chrome Web Store.",
     fsTitle: "Do banco à tela",
     fsLead: "Além do front-end, trabalho nas camadas que o alimentam. Estas são as camadas em que atuo, da tela até os dados.",
     fsInfra: "Em todas as camadas",
@@ -311,12 +381,14 @@ export const ui = {
     intro:
       "I build web and mobile products end to end: the interface in React, Next.js and React Native on micro-frontend architectures, and the APIs and BFFs behind it in Node.js, Java and .NET. Ten years of experience across Globo, QuintoAndar, Carguero and Daimler.",
     available: "Open to Senior Frontend and Full Stack roles · remote or São Paulo",
-    nav: { work: "Experience", cases: "Highlights", fullstack: "Full stack", skills: "Stack", contact: "Contact" },
+    nav: { work: "Experience", cases: "Highlights", projects: "Projects", fullstack: "Full stack", skills: "Stack", contact: "Contact" },
     eraTitle: "10 years, 6 companies, 4 generations of frontend",
     eraNote: "Each band is a company, sized by time spent, with the stack I used there.",
     workTitle: "Experience",
     now: "present",
     casesTitle: "Highlights",
+    projectsTitle: "Projects",
+    projectsLead: "Things I built on my own and shipped, from a native Mac app to an extension on the Chrome Web Store.",
     fsTitle: "From database to screen",
     fsLead: "Beyond the front end, I work on the layers that feed it. These are the layers I work in, from the screen down to the data.",
     fsInfra: "Across every layer",
