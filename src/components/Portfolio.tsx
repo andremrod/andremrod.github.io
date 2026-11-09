@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CopyEmail } from "@/components/CopyEmail";
 import { EraChart } from "@/components/EraChart";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { backendWork, cases, certifications, education, infra, layers, person, projects, roles, skills, ui, type Lang } from "@/content";
 import { formatDuration, formatMonth, monthsWorked } from "@/lib/dates";
 import type { CSSProperties } from "react";
@@ -34,6 +35,7 @@ export function Portfolio({ lang }: { lang: Lang }) {
             <a href="#stack">{t.nav.skills}</a>
             <a href="#contato">{t.nav.contact}</a>
           </nav>
+          <ThemeToggle toDark={t.themeToDark} toLight={t.themeToLight} />
           <Link className="lang" href={t.langHref} hrefLang={lang === "pt" ? "en" : "pt-BR"}>
             {t.langSwitch}
           </Link>
