@@ -277,6 +277,7 @@ ul, ol, dl, dd { margin: 0; padding: 0; }
 .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 28px; }
 .project { gap: 14px; }
 .project__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.projects__more { display: flex; justify-content: center; margin-top: 28px; }
 
 /* do banco à tela */
 .lead { font-size: var(--step-1); color: var(--ink-2); max-width: 62ch; }

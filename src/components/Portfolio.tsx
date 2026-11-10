@@ -177,6 +177,12 @@ export function Portfolio({ lang }: { lang: Lang }) {
               </article>
             ))}
           </div>
+          <div className="projects__more" {...reveal(0)}>
+            <a className="btn" href={`${person.github}?tab=repositories`} target="_blank" rel="noopener">
+              {t.projectsMore}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </div>
         </section>
 
         <section id="fullstack" className="wrap section" aria-labelledby="fs-title">
